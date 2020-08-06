@@ -26,7 +26,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- //Default-JavaScript-File -->
-
+<!--ajax google form-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- banner -->
@@ -621,7 +622,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Contact me</h3>
 		</div>
 			<div class="contact-w3ls">
-				<form action="#" method="post">
+				<form id="submit-form" action="">
 					<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
 						<input type="text" name="First Name" placeholder="Name" required="">
 						<input type="email"  class="email" name="Email" placeholder="Email" required="">
@@ -747,6 +748,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	})();
 	</script>
 	<!--End of Tawk.to Script-->
+  <!--google form-->
+  <script>
+	$("#submit-form").submit((e)=>{
+		e.preventDefault()
+		$.ajax({
+			url:"https://script.google.com/macros/s/AKfycbzmya7wIvLFDbIcvsNIZzE9MTLrEaYKM5HqGBcK97sbdibb7q8/exec",
+			data:$("#submit-form").serialize(),
+			method:"post",
+			success:function (response){
+				alert("Form submitted successfully")
+				window.location.reload()
+				//window.location.href="https://google.com"
+			},
+			error:function (err){
+				alert("Something Error")
 
+			}
+		})
+	})
+</script
+  <!--google form-->
 </body>
 </html>
